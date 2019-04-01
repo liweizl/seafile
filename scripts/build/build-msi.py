@@ -323,6 +323,7 @@ class SeafileClient(Project):
             'cmake -G "%s" %s .' % (generator, flags_str),
             make,
             '%s install' % make,
+            "bash registry-clean/build.sh",
             "bash extensions/build.sh",
         ]
 
@@ -699,6 +700,7 @@ def copy_dll_exe():
         os.path.join(prefix, 'bin', 'libseafile-0.dll'),
         os.path.join(prefix, 'bin', 'seaf-daemon.exe'),
         os.path.join(SeafileClient().projdir, 'seafile-applet.exe'),
+        os.path.join(SeafileClient().projdir, 'registry-clean', 'registrycleaner.exe'),
     ]
 
     for name in filelist:
